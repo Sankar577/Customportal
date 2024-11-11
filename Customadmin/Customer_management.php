@@ -126,20 +126,25 @@ $banner_image1="";
 $banner_image=$get_image;
 }
 if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($_POST["add_action"]))){   
-    $banner_title = $db_cms->removeQuote($_POST["banner_title"]); 
-	 $banner_subtitle = $db_cms->removeQuote($_POST["banner_subtitle"]);
-    $banner_page = "inner_client";   
+    $custom_name = $db_cms->removeQuote($_POST["customer_name"]); 
+    $ph_num = $db_cms->removeQuote($_POST["phone_number"]);
+    $email =   $db_cms->removeQuote($_POST["email"]);
+    $address= $db_cms->removeQuote($_POST["address"]);
     if(!empty($_POST["edit_action"])){
-		$sql_img="SELECT banner_image FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'";
+		$sql_img="SELECT phone_number FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'";
 		$res_img=$db_cms->select_query_with_rows($sql_img);	
-		$sql="UPDATE $table_name SET `banner_title`='".$banner_title."',`banner_subtitle`='".$banner_subtitle."',`banner_image`='".$banner_image."',`modified_date`=CURDATE() WHERE `custom_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
+		$sql="UPDATE custom_customer SET `customer_name`='Sankara',`phone_number`='9626585077',`email`='uthra.math@example.com', `address`='321 Birch St,chennai, IL' WHERE `custom_id`='1'";
+
+        // print_r($sql);
+        // exit();
+        
     }
     else{
-        $sql="INSERT INTO $table_name(`banner_title`,`banner_subtitle`,`banner_image`,`banner_page`) VALUES ('".$banner_title."','".$banner_subtitle."','".$banner_image."','".$banner_page."')";
+        $sql="INSERT INTO $table_name(`customer_name`,`phone_number`,`email`,`address`) VALUES ('".$custom_name."','".$ph_num."','".$email."','".$address."')";
 	
     }
     $res = $db_cms->update_query($sql);   // <-  normal query function this
-   
+
     if($res!=FALSE){
         $_SESSION["cms_status"]="success";
         if(!empty($_POST["edit_action"])){
@@ -154,6 +159,7 @@ if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($
         }
     }
     else{
+        
         $_SESSION["cms_status"]="error";
         $_SESSION["cms_msg"]=(!empty($_POST["edit_action"]))?"Unable to update!":"Unable to add!";
     }  
@@ -238,9 +244,10 @@ include("include/sidebar.php");
                         if(!empty($_REQUEST["action"])){
                             $custom_id=""; 
                           
-                            $banner_title="";
-                            $banner_subtitle="";
-                            $banner_path="";
+                            $custom_name="";
+                            $ph_num="";
+                            $email="";
+                            $address="";
                            
                            
                             if(($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="view") && !empty($_REQUEST["custom_id"])){
@@ -261,7 +268,7 @@ include("include/sidebar.php");
                                         <label class="control-label col-xs-2">Customer name<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name=" " id="banner_title" class="form-control"  value="<?php echo $custom_name;?>" readonly>
+                                                <input type="text" name="customer_name" id="banner_title" class="form-control"  value="<?php echo $custom_name;?>" >
                                             </div>
                                         </div>
                                 </div>    
@@ -269,7 +276,7 @@ include("include/sidebar.php");
                                         <label class="control-label col-xs-2">phone number<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name="banner_title" id="banner_title" class="form-control"  value="<?php echo $ph_num;?>" readonly>
+                                                <input type="text" name="phone_number" id="banner_title" class="form-control"  value="<?php echo $ph_num;?>">
                                             </div>
                                         </div>
                                 </div>  
@@ -277,7 +284,7 @@ include("include/sidebar.php");
                                         <label class="control-label col-xs-2">Email<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name="banner_title" id="banner_title" class="form-control"  value="<?php echo $email;?>" readonly>
+                                                <input type="text" name="email" id="banner_title" class="form-control"  value="<?php echo $email;?>" >
                                             </div>
                                         </div>
                                 </div>  
@@ -285,7 +292,7 @@ include("include/sidebar.php");
                                         <label class="control-label col-xs-2">Address<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name="banner_title" id="banner_title" class="form-control"  value="<?php echo $address;?>" readonly>
+                                                <input type="text" name="address" id="banner_title" class="form-control"  value="<?php echo $address;?>">
                                             </div>
                                         </div>
                                 </div>  
@@ -321,7 +328,7 @@ include("include/sidebar.php");
                                             ?>
                                             <div class="form-group">
                                                 <input type="hidden" name="<?php echo $action;?>" value="<?php echo $val;?>"/>
-                                                <input type="submit" id="submit_action" name="submit_action" value="Submit" class="btn btn-success" onclick="return validation_image();"/> 
+                                                <input type="submit" id="submit_action" name="submit_action" value="Submit" class="btn btn-success" /> 
                                                  &nbsp;<a class="btn bg-purple" href="<?php echo $current_page;?>">Back</a> 
                                             </div>
                                     </div>
@@ -432,7 +439,7 @@ include("include/sidebar.php");
                                             <td>
                                                 <a class="btn btn-info" href="?action=view&custom_id=<?php echo $row["custom_id"];?>"><i class="fa fa-eye"></i> View</a>
                                                 <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&custom_id=".$row["custom_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
-                                                <a onClick="return confirmDelete();" href="about_us.php?custom_id=<?=$row['custom_id']?>&action=delete" class="btn btn-danger">Delete</a>
+                                                <a onClick="return confirmDelete();" href="Customer_management.php?custom_id=<?=$row['custom_id']?>&action=delete" class="btn btn-danger">Delete</a>
                                              
                                             </td>
                                         </tr>
@@ -481,28 +488,29 @@ include("include/sidebar.php");
 			    ignore: [],
        
               rules: {
-                    banner_title:{
+                    customer_name:{
                         required:true
                     },   
-				banner_subtitle:{
+                    phone_number:{
+                    
                         required:true
                     },	
 
-                    theValue:{
+                    email:{
                         required:true,
 				
 						
                      },
-                      banner_link:{
+                     address:{
                         required:true,
-                        url: true
+                        
                     },
                 },        
             messages:{
-                banner_title:{required:"Please enter title"}, 
-				banner_subtitle:{required:"Please enter content"}, 
-                theValue:{required:"Please upload the image"},         
-                banner_link:{required:"Please enter link"},         
+                customer_name:{required:"Please enter Customer name"}, 
+				phone_number:{required:"Please enter phone number"}, 
+                email:{required:"Please enter Email"},         
+               address :{required:"Please enter address"},         
                      
                      
             },
