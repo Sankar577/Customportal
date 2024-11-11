@@ -131,12 +131,13 @@ if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($
     $email =   $db_cms->removeQuote($_POST["email"]);
     $address= $db_cms->removeQuote($_POST["address"]);
     if(!empty($_POST["edit_action"])){
-		$sql_img="SELECT phone_number FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'";
+		$sql_img="SELECT * FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'"; 
 		$res_img=$db_cms->select_query_with_rows($sql_img);	
-		$sql="UPDATE custom_customer SET `customer_name`='Sankara',`phone_number`='9626585077',`email`='uthra.math@example.com', `address`='321 Birch St,chennai, IL' WHERE `custom_id`='1'";
-
+		$sql="UPDATE custom_customer SET `customer_name`='".$custom_name."',`phone_number`='".$ph_num."',`email`='".$email."', `address`='".$address."' WHERE `custom_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
         // print_r($sql);
         // exit();
+
+       
         
     }
     else{
@@ -489,11 +490,11 @@ include("include/sidebar.php");
        
               rules: {
                     customer_name:{
-                        required:true
+                        required:true,
                     },   
                     phone_number:{
                     
-                        required:true
+                        required:true,
                     },	
 
                     email:{
@@ -510,7 +511,7 @@ include("include/sidebar.php");
                 customer_name:{required:"Please enter Customer name"}, 
 				phone_number:{required:"Please enter phone number"}, 
                 email:{required:"Please enter Email"},         
-               address :{required:"Please enter address"},         
+               address:{required:"Please enter address"},         
                      
                      
             },
@@ -558,8 +559,7 @@ let table = new DataTable('#no_search', {
 //     ordering: true
 //     searching: true,
 // } );
-    </script>
-
-<?php 
+    </script>    
+    <?php 
 include("include/footer.php");
 ?>
