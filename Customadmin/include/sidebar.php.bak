@@ -1,0 +1,74 @@
+<?php
+$currentFile = $_SERVER["SCRIPT_NAME"];
+$parts = Explode('/', $currentFile);
+$currentFile = $parts[count($parts) - 1];
+
+if($currentFile=="socialmedia.php"){ $social="class='active'"; } else {$social=""; }
+if($currentFile=="setting.php"){ $setting="class='active'"; } else {$setting=""; }
+if(($currentFile== "header_ads.php") || ($currentFile== "bottom_sponsorads.php") || ($currentFile== "art_banner_ads.php")){$ads="active";} else { $ads="";}
+if($currentFile== "header_ads.php"){$header_ads="class='active'";} else { $header_ads="";}
+if($currentFile== "bottom_sponsorads.php"){$sidebar_ads="class='active'";} else { $sidebar_ads="";}
+if($currentFile== "art_banner_ads.php"){$art_banner_ads="class='active'";} else { $art_banner_ads="";}
+if(($currentFile== "banner.php")|| ($currentFile== "home_con.php") || ($currentFile== "home_ads.php")||($currentFile== "home_sideads.php")){$home="active";} else { $home="";}
+if($currentFile== "home_sideads.php"){$home_sideads="class='active'";} else { $home_sideads="";}
+if($currentFile=="banner.php"){ $home_banner="class='active'"; } else {$home_banner=""; } 
+if($currentFile=="inner_banner.php"){ $inner_banner="class='active'"; } else {$inner_banner=""; }
+if(($currentFile== "article.php") || ($currentFile== "terms.php") || ($currentFile== "privacy.php")|| ($currentFile== "about.php") || ($currentFile=="article_ads.php")|| ($currentFile=="foot_menu.php")|| ($currentFile=="manage_menu.php")){$home_content="active";} else { $home_content="";}
+if(($currentFile=="article.php") ||($currentFile=="article_ads.php")){ $article="class='active'"; } else {$article=""; }
+if(($currentFile=="home_con.php") ||($currentFile=="home_ads.php")){ $home_con="class='active'"; } else {$home_con=""; }
+if($currentFile=="about.php"){ $about="class='active'"; } else {$about=""; }
+if(($currentFile=="foot_menu.php")|| ($currentFile=="manage_menu.php")) { $foot_menu="class='active'"; } else {$foot_menu=""; }
+
+?>
+<aside class="main-sidebar" style="top: 50px;">
+    <section class="sidebar">
+        <ul class="sidebar-menu" data-widget="tree">
+    
+            <li <?php echo $index;?>>
+                <a href="index.php">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+		<li class="treeview <?php echo $home;?>" <?php if($home_banner) { echo "style='display:block'"; }else{ echo ""; } ?> >
+                <a href="#">
+               <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>Home</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+				<li <?php echo $home_con;?>><a href="home_con.php"> <i class="fa fa-home" aria-hidden="true"></i>Home content</a>										
+				<li <?php echo $home_banner;?>><a href="banner.php"><i class="fa  fa-server" aria-hidden="true"></i>Banner Slider Management</a></li>                    
+                </ul>
+            </li>
+			
+	 
+			<li <?php echo $inner_banner;?>><a href="inner_banner.php"><i class="fa fa-info" aria-hidden="true"></i>About Us</a></li>
+			<li <?php echo $home_con;?>><a href="$home_con.php"><i class="fa fa-info" aria-hidden="true"></i>Services</a></li>
+			
+             <li class="treeview <?php echo $home_content;?>" <?php if($article) { echo "style='display:block'"; }else{ echo ""; } ?> >
+                <a href="#">
+                <i class="fa fa-th"></i>
+                    <span>Content Management</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+			
+				<li <?php echo $article;?>><a href="article.php"><i class="fa  fa-server" aria-hidden="true"></i>Articles</a></li>
+                 <li <?php echo $about;?> ><a href="about.php"><i class="fa fa-info" aria-hidden="true"></i>Inner Page Content</a></li>
+				 <li <?php echo $foot_menu;?>><a href="foot_menu.php"><i class="fa  fa-server" aria-hidden="true"></i>Footer Menu</a></li>
+                </ul>
+            </li>
+			<li <?php echo $setting;?>><a href="setting.php"><i class="fa fa-phone-square" aria-hidden="true"></i>Site Settings</a></li> 
+		
+            
+
+
+              
+        </ul>
+    </section>
+</aside>

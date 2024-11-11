@@ -1,0 +1,194 @@
+@media only screen and (max-width: 768px) {
+	
+  .container {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .container .logo {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+	float:none;
+	width:70%;
+  }
+	
+  
+  .logo img {width:85%;margin:0px 0px 0px 30px}
+
+  .container .navbar {
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+	position: relative;
+    left:38%;
+	float:none;
+  }
+  .contact_us{position:relative;right:31%}
+
+  .container .navbar ul {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    position: fixed;
+    left: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: #ffffff;
+    height: 100%;
+    overflow: auto;
+    -webkit-transition: left .3s;
+    -o-transition: left .3s;
+    transition: left .3s;
+	transition: right 3s;
+  }
+
+  .container .navbar ul li a {
+    padding: 5px;
+    font-size: 16px;
+    height: auto;
+    line-height: 40px;
+    color: #232323;
+  }
+.container .navbar ul li a:hover {
+	padding: 10px;
+    text-align: center;
+}
+	
+  .container .navbar ul .close {
+    display: block;
+
+  }
+
+  .container .navbar .icon-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .container .navbar ._Menus-show {
+    left: -30%;
+	position:relative;
+  }
+
+  .wrapper{width:auto;}
+}
+
+.body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+	
+.slider_container{ width:90%; margin:2% 0 0 2%; clear:both; background:none; padding:30px 0 0 0;}
+.flexslider {width: 100%; margin: 0; padding:0 0 30px 0;background:none;}
+.flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:0px; cursor: pointer; text-indent: -9999px;}
+.flex-direction-nav li a.next {float:left;background:url("../img/left.jpg") no-repeat ; width:45px; margin: 0px 0px 0px 0px;top:39%}
+.flex-direction-nav li a.prev {float:right;background:url("../img/right.jpg") no-repeat ; width:45px; margin: 0px 0px 0px 0px;top:39%}
+.flex-caption { display:none;}
+.head {font-size:20px;}
+.head1{font-size:22px}
+.para {font-size:12px;line-height:1}
+.next  {left:0px}
+.readmore{padding:6px 14px;font-size:13px;float:none;margin:auto;width:32%;margin-top:5px}
+.readmore a{text-decoration:none}
+.bannerbox{text-align:center;width:57%;top:20px}
+.welcome{margin:20px 0px 0px 0px}
+.welcomepart-left img{max-width:100%;display:block}
+.welcomepart-left{width:50%;margin-top:auto;margin-left:auto;float:none;margin-right:auto;display:block}
+.welcomepart-right{float:none;padding:20px 10px 0px 10px;width:auto;margin-left:auto;margin-right:auto;text-align:center}
+.welcomepart-right h6{font-size:13px;margin-left:40%;}
+.welcomepart-right h6:after {margin-left: 10px;margin-right: 55%;}
+.welcomepart h1{font-size:16px}
+.welcomepart-right p{font-size:14px;margin-top:10px}
+.welcomepart-right div{text-align:center;float:none;width:19%;margin:auto;margin-top:10px}
+.bgimg{float:none;height:auto;margin-top:20px;}
+.bgimg img{height:250px}
+.background{padding:0px 0px 250px 0px;margin-top:5px}
+.client_center{margin-left:10px;margin-right:10px;margin-top:30px;width:95%;display:block;text-align:center}
+.client_center h6{font-size:12px}
+.client_center h1{font-size:22px}
+.client_center p{font-size:13px;margin-top:10px;line-height:1.3}
+.client_center div{float:none;width:20%;margin:auto;margin-top:15px}
+.client_center a{text-decoration:none}
+.ourservices{margin-top:50px}
+.ourservices h6{float:none;margin-left:auto;margin-right:auto}
+.column img{width:90%;height:52%}
+.info1{float:none;margin-left:auto;margin-right:auto;width:60%;margin-bottom: 5%}
+.footer{ padding:50px 0px 0px 0px;margin-top: 30px}
+.info1 img{float:none;width:100%}
+.info2{float:none;margin-left:auto;margin-right:auto;width:200px}
+.info2 h2{margin-top:5%}
+.info2 ul{margin: 0px 0px 40px 0px;}
+.info3{float:none;margin-left:auto;margin-right:auto;width:215px}
+.info3 ul{margin: 20px 0px 0px 0px}
+.footer_bottom img {width: 14%;}
+.footer_bottom p {width: 83%;margin:auto}
+.moreservices{margin-top:20px}
+.column {flex: 60.33%;}
+.services_readmore{width:35%}
+
+}
+
+@media only screen and (min-width:768px) and (max-width:1250px) {
+	.client_center{margin-left:40px;width:38%}
+	.client_center h6{font-size:12px}
+	.client_center h1{font-size:22px}
+	.client_center p{font-size:14px;margin-top:10px;line-height:1.3}
+}
+
+
+
+@media only screen and (min-width:768px) and (max-width:1050px) {
+
+.welcome{margin-top:30px}
+.bgimg{height:auto;}
+.bgimg img{height:250px}
+.background{padding:0px 0px 250px 0px;margin-top:25px}
+.client_center{margin-left:20px;margin-top:30px;width:52%;display:block;}
+.client_center h6{font-size:12px}
+.client_center h1{font-size:22px}
+.client_center p{font-size:13px;margin-top:10px;line-height:1.3}
+.container.logo {float: none;}
+.container .navbar{float:none;font-size:14px}
+.container .navbar li a{padding:0 12px}
+.head {font-size:17px;}
+.head1{font-size:19px}
+.para {font-size:13px;line-height:1}
+.welcomepart-left{width:45%;margin-left:auto;float:left;margin-right:auto;display:block}
+.welcomepart-right{float:right;padding:0px 10px 0px 10px;margin-left:auto;margin-right:auto;}
+.welcomepart-right h6{font-size:14px;}
+.welcomepart-right h6:after {margin-left: 10px;margin-right: 65%;}
+.welcomepart-right p{font-size:14px;}
+.welcomepart-right h1{font-size:26px;}
+.readmore{padding:6px 14px;font-size:14px;margin-top:7px;}
+.bgimg img{height:250px;float:right}
+.ourservices h6{float:none;margin-left:auto;margin-right:auto}
+..column {flex: 25.33%;}
+.column img{width:90%;height:35%}
+.services_readmore{width:34%}
+.footer_bottom img {bottom: 0px;width: 10%;}
+.info1{margin-left:3%;margin-right:auto;width:37%}
+.info1 img{float:none;width:85%}
+.info1 p{font-size:14px}
+.info2 h2{margin-top:10%}
+.info2 ul{margin: 0px 0px 22px 0px;}
+.info3{margin-left: 40px;width: 30%;}
+.info3 h2{margin-top: 1%;margin-bottom: 22px;position: absolute;}
+.info3 ul{margin: 60px 0px 22px 0px}
+
+}
+@media only screen and (max-width:1020px){
+ .wrapper{width:auto}
+.info{float:none;text-align:end}
+}
+
+@media only screen and (min-width:500px) and (max-width:768px) {
+.services_readmore{width: 25%;}
+.bannerbox{top:20%}
+}
