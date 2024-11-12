@@ -39,8 +39,8 @@
 <div class="wrapper">
 <header class="main-header">
     <a href="../index.php" class="logo" target="_blank" style="height: 100px;    border: none;padding-top: 10px">
-        <span class="logo-mini"><b>Range Offers</b></span>
-        <span class="logo-lg">
+        <span class="logo-mini"><b>Custom Portal</b></span>
+        <span class="logo-lg  ">
             <img src="img/portal.jpg"/>
         </span>
     </a>

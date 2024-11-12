@@ -6,12 +6,12 @@ $currentFile = $parts[count($parts) - 1];
 
 if($currentFile=="setting.php"){ $setting="class='active'"; } else {$setting=""; }
 if($currentFile=="services.php"){ $services="class='active'"; } else {$services=""; }
-if($currentFile=="about_us.php"){ $about_us="class='active'"; } else {$about_us=""; }
+if($currentFile=="Product_management.php"){ $about_us="class='active'"; } else {$about_us=""; }
 if($currentFile=="contend.php"){ $contend_us="class='active'"; } else {$contend_us=""; }
 if($currentFile=="join.php"){ $join_us="class='active'"; } else {$join_us=""; }
 if($currentFile=="OurTeam.php"){ $team_us="class='active'"; } else {$team_us=""; }
 if($currentFile=="client.php"){ $client="class='active'"; } else {$client=""; }
-if($currentFile=="client_inner.php"){ $client_inner="class='active'"; } else {$client_inner=""; }
+if($currentFile=="Customer_management.php"){ $Customer_management="class='active'"; } else {$Customer_management=""; }
 if(($currentFile== "banner.php")|| ($currentFile== "home_con.php") || ($currentFile== "home_ads.php")||($currentFile== "home_sideads.php")){$home="active";} else { $home="";}
 if($currentFile== "home_sideads.php"){$home_sideads="class='active'";} else { $home_sideads="";}
 if($currentFile=="banner.php"){ $home_banner="class='active'"; } else {$home_banner=""; } 
@@ -43,10 +43,10 @@ if(($currentFile== "client.php")|| ($currentFile== "services.php") || ($currentF
             </li>
             
 			
-	  <li <?php echo $client_inner;?> ><a href="Customer_management.php"><i class="fa fas fa-building" aria-hidden="true"></i>Customer management</a></li>
-			<!-- <li <?php echo $about_us;?>><a href="about_us.php"><i class="fa fa-rocket" aria-hidden="true"></i>About Us</a></li>
-            <li <?php echo $setting;?>><a href="setting.php"><i class="fa fa-gears" aria-hidden="true"></i>Site Settings</a></li>
-			 -->
+	  <li <?php echo $Customer_management;?> ><a href="Customer_management.php"><i class="fa fas fa-building" aria-hidden="true"></i>Customer Management</a></li>
+      <li <?php echo $about_us;?>><a href="Product_management.php"><i class="fa fas fa-cube  pictofixedwidth" aria-hidden="true"></i>Product Management</a></li>
+            <!-- <li <?php echo $setting;?>><a href="setting.php"><i class="fa fa-gears" aria-hidden="true"></i>Site Settings</a></li> -->
+			 
            
           
                 

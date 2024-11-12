@@ -74,6 +74,7 @@ class DBManager{
             $rows=array();
             while($row=$res->fetch_assoc()){
                 $rows[]=$row;
+                
             }
             return $rows;
         }

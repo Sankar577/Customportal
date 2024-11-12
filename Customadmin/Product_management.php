@@ -9,16 +9,16 @@ if(empty($_SESSION['user_id']) && empty($_SESSION['user_name'])){
     header('Location:login.php');
     exit();
 } 
-$sitetitle="Customer_Management - ".$site_title;
+$sitetitle="Product_Management - ".$site_title;
 
 //  manage settings + action---#
 $is_add_enabled=true;
 $is_edit_enabled=true;
 $is_delete_enabled=true;
 
-$table_name="".DB_PREFIX."_customer";
-$current_page="Customer_management.php";
-$custom_id=trim($_REQUEST['custom_id']);
+$table_name="".DB_PREFIX."_product_management";
+$current_page="Product_management.php";
+$product_id=trim($_REQUEST['product_id']);
 $width_w="1500";
 $height_w="300";
 
@@ -44,8 +44,8 @@ if(!empty($_REQUEST["action"])) {
             exit();
         }
 
-        if($_REQUEST["action"] == "delete" && $is_delete_enabled && !empty($_REQUEST["custom_id"])){
-            $sql="DELETE FROM $table_name WHERE `custom_id`='".$db_cms->removeQuote($_REQUEST["custom_id"])."'";
+        if($_REQUEST["action"] == "delete" && $is_delete_enabled && !empty($_REQUEST["product_id"])){
+            $sql="DELETE FROM $table_name WHERE `product_id`='".$db_cms->removeQuote($_REQUEST["product_id"])."'";
             $res=$db_cms->delete_query($sql);
             if($res!=FALSE){
                 $_SESSION["cms_status"]="success";
@@ -126,22 +126,22 @@ $banner_image1="";
 $banner_image=$get_image;
 }
 if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($_POST["add_action"]))){   
-    $custom_name = $db_cms->removeQuote($_POST["customer_name"]); 
-    $ph_num = $db_cms->removeQuote($_POST["phone_number"]);
-    $email =   $db_cms->removeQuote($_POST["email"]);
-    $address= $db_cms->removeQuote($_POST["address"]);
+    $product_name = $db_cms->removeQuote($_POST["product_name"]); 
+    $sku = $db_cms->removeQuote($_POST["Stock_keeping_unit"]);
+    $product_price =   $db_cms->removeQuote($_POST["Product_price"]);
+    $prod_desc= $db_cms->removeQuote($_POST["product_description"]);
     if(!empty($_POST["edit_action"])){
-		$sql_img="SELECT * FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'"; 
+		$sql_img="SELECT * FROM $table_name WHERE product_id='".$db_cms->removeQuote($_REQUEST["product_id"])."'"; 
 		$res_img=$db_cms->select_query_with_rows($sql_img);	
-		$sql="UPDATE custom_customer SET `customer_name`='".$custom_name."',`phone_number`='".$ph_num."',`email`='".$email."', `address`='".$address."' WHERE `custom_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
-        // print_r($sql);
+        // print_r($res_img);
         // exit();
+		$sql="UPDATE $table_name SET `product_name`='".$product_name."',`Stock_keeping_unit`='".$sku."',`Product_price`='".$product_price."', `product_description`='".$prod_desc."' WHERE `product_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
 
        
         
     }
     else{
-        $sql="INSERT INTO $table_name(`customer_name`,`phone_number`,`email`,`address`) VALUES ('".$custom_name."','".$ph_num."','".$email."','".$address."')";
+        $sql="INSERT INTO $table_name(`product_name`,`Stock_keeping_unit`,`Product_price`,`product_description`) VALUES ('".$product_name."','".$sku."','".$product_price."','".$prod_desc."')";
 	
     }
     $res = $db_cms->update_query($sql);   // <-  normal query function this
@@ -178,12 +178,12 @@ include("include/sidebar.php");
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-            Customer Management
-                <small>Control Panel</small>
+            Product Management
+                <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>Customer Management</a></li>
-                <li class="active">Customer Management</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Product Management</a></li>
+                <li class="active">Product Management</li>
             </ol>
         </section>
 
@@ -195,7 +195,7 @@ include("include/sidebar.php");
                             <?php
                             if(!empty($_REQUEST["action"])){
                                 ?>
-                                <h3 class="box-title">Customer Management - <?php echo ucfirst($_REQUEST["action"]);?> </h3>
+                                <h3 class="box-title">Product Management - <?php echo ucfirst($_REQUEST["action"]);?> </h3>
                                 <div class="pull-right">
                                     <a class="btn bg-purple" href="<?php echo $current_page;?>"><i class="fa  fa-chevron-left"></i> &nbsp;Back</a>
                                 </div>
@@ -203,7 +203,7 @@ include("include/sidebar.php");
                             }
                             else{
                                 ?>
-                                <h3 class="box-title">Customer Management</h3>
+                                <h3 class="box-title">Product Management</h3>
                                 <div class="pull-right">
                                   <!-- <a class="btn bg-maroon <?php echo ($is_add_enabled)?"":"disabled";?>" href="<?php echo ($is_add_enabled)?"?action=add":"javascript:void(0);";?>"><i class="fa  fa-plus"></i> &nbsp;Add</a> -->
                                 </div>  
@@ -243,59 +243,57 @@ include("include/sidebar.php");
                         <?php
                         $no_action=false;
                         if(!empty($_REQUEST["action"])){
-                            $custom_id=""; 
+                            $product_id=""; 
                           
-                            $custom_name="";
-                            $ph_num="";
-                            $email="";
-                            $address="";
+                            $product_name="";
+                            $sku="";
+                            $product_price="";
+                            $prod_desc="";
                            
                            
-                            if(($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="view") && !empty($_REQUEST["custom_id"])){
-                                $sql="SELECT * FROM $table_name WHERE custom_id='".$db_cms->removeQuote($_REQUEST["custom_id"])."'";
+                            if(($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="view") && !empty($_REQUEST["product_id"])){
+                                $sql="SELECT * FROM $table_name WHERE product_id='".$db_cms->removeQuote($_REQUEST["product_id"])."'";
                                 $res=$db_cms->select_query_with_row($sql);
-                                $custom_id=$res["custom_id"];
-                                $custom_name=get_symbol($res["customer_name"]);
-                                $ph_num=get_symbol($res["phone_number"]);
-                                $email=get_symbol($res["email"]);   
-                                $address=get_symbol($res["address"]);                            
+                                $product_id=$res["product_id"];
+                                $product_name=get_symbol($res["product_name"]);
+                                $sku=get_symbol($res["Stock_keeping_unit"]);
+                                $product_price=get_symbol($res["Product_price"]);   
+                                $prod_desc=get_symbol($res["product_description"]);                            
                             }
                             if($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="add"){
                                 ?>
-
-                                
                         <form role="form" class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="banner">
                             <div class="box-body">
 
                                  <div class="form-group">
-                                        <label class="control-label col-xs-2">Customer Name<span class="star">*</span>:</label>
+                                        <label class="control-label col-xs-2">Product Name<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name="customer_name" id="customer_name" class="form-control"  value="<?php echo $custom_name;?>" >
+                                                <input type="text" name="product_name" id="product_name" class="form-control"  value="<?php echo $product_name;?>" >
                                             </div>
                                         </div>
                                 </div>    
                                 <div class="form-group">
-                                        <label class="control-label col-xs-2">Phone Number<span class="star">*</span>:</label>
+                                        <label class="control-label col-xs-2">Stock Keeping Unit<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="number"   name="phone_number" id="phone_number" class="form-control"  value="<?php echo $ph_num;?>">
+                                                <input type="text" name="Stock_keeping_unit" id="Stock_keeping_unit" class="form-control"  value="<?php echo $sku;?>">
                                             </div>
                                         </div>
                                 </div>  
                                 <div class="form-group">
-                                        <label class="control-label col-xs-2">Email<span class="star">*</span>:</label>
+                                        <label class="control-label col-xs-2">Product Price<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="email" name="email" id="email" class="form-control"  value="<?php echo $email;?>" >
+                                                <input type="number" min="0" name="Product_price" id="Product_price" class="form-control"  value="<?php echo $product_price;?>" >
                                             </div>
                                         </div>
                                 </div>  
                                 <div class="form-group">
-                                        <label class="control-label col-xs-2">Address<span class="star">*</span>:</label>
+                                        <label class="control-label col-xs-2">Product Description<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                            <textarea type="text" name="address" id="address" class="form-control"  ><?php echo $address;?></textarea>
+                                                <input type="text" name="product_description" id="product_description" class="form-control"  value="<?php echo $prod_desc;?>">
                                             </div>
                                         </div>
                                 </div>  
@@ -318,12 +316,16 @@ include("include/sidebar.php");
                                         </div>
                                     </div>
                                 </div> -->
+
+                               
+                                 
+
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">&nbsp;</label>
                                     <div class="col-sm-6">
                                         <?php
                                             $action=($_REQUEST["action"]=="edit")?"edit_action":(($_REQUEST["action"]=="add")?"add_action":"none_action");
-                                            $val=(!empty($res))?$res["custom_id"]:"1";
+                                            $val=(!empty($res))?$res["product_id"]:"1";
                                             ?>
                                             <div class="form-group">
                                                 <input type="hidden" name="<?php echo $action;?>" value="<?php echo $val;?>"/>
@@ -342,44 +344,44 @@ include("include/sidebar.php");
                             <div class="box-body">
 
                                 <div class="form-group">
-                                        <label class="control-label col-xs-2">Customer Name</label>
+                                        <label class="control-label col-xs-2">Product Name</label>
                                         <div class="col-xs-6">
                                             <div class="view_space">
                                                 <?php
-                                                echo $custom_name;
+                                                echo $product_name;
                                                 ?>
                                             </div>
                                         </div>
                                 </div>
-									<?php if($ph_num!=''){?>		
+									<?php if($sku!=''){?>		
 									<div class="form-group">
-                                        <label class="control-label col-xs-2">Phone Number</label>
+                                        <label class="control-label col-xs-2">Stock Keeping Unit</label>
                                         <div class="col-xs-6">
                                             <div class="view_space">
                                                 <?php
-                                                echo $ph_num;
+                                                echo $sku;
                                                 ?>
                                             </div>
                                         </div>
                                 </div>
 									<?php } ?>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-2">Email</label>
+                                        <label class="control-label col-xs-2">Product Price</label>
                                         <div class="col-xs-6">
                                             <div class="view_space">
                                                 <?php
-                                                echo $email;
+                                                echo $product_price;
                                                 ?>
                                             </div>
                                         </div>
                                 </div>
 
                                 <div class="form-group">
-                                        <label class="control-label col-xs-2">Address</label>
+                                        <label class="control-label col-xs-2">Product Description</label>
                                         <div class="col-xs-6">
                                             <div class="view_space">
                                                 <?php
-                                                echo $address;
+                                                echo $prod_desc;
                                                 ?>
                                             </div>
                                         </div>
@@ -412,33 +414,37 @@ include("include/sidebar.php");
                                 <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>Customer Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
+                                    <th>Product Name</th>
+                                    <th>Stock Keeping Unit</th>
+                                    <th>Product Price</th>
+                                    <th>Product Description</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                    
                                 <?php
-                                $sql="SELECT * FROM $table_name where custom_id order by custom_id asc";
-                            
+                                $sql="SELECT * FROM $table_name where product_id order by product_id asc";
+                            //    print_r($sql);
+                            //    exit();
                                 $res=$db_cms->select_query_with_rows($sql);
+                                
                                 if($res!=FALSE){
                                     $i=1;
+                                   
                                     foreach ($res as $row){
+                                        
                                         ?>
                                         <tr>
                                             <td><?php echo $i;?></td>
-                                          <td><?php echo $row["customer_name"];?></td>
-                                          <td><?php echo $row["phone_number"];?></td>
-                                          <td><?php echo $row["email"];?></td>
-                                          <td><?php echo $row["address"];?></td>
+                                          <td><?php echo $row["product_name"];?></td>
+                                          <td><?php echo $row["Stock_keeping_unit"];?></td>
+                                          <td><?php echo $row["Product_price"];?></td>
+                                          <td><?php echo $row["product_description"];?></td>
                                             <td>
-                                                <a class="btn btn-info" href="?action=view&custom_id=<?php echo $row["custom_id"];?>"><i class="fa fa-eye"></i> View</a>
-                                                <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&custom_id=".$row["custom_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
-                                                <a onClick="return confirmDelete();" href="Customer_management.php?custom_id=<?=$row['custom_id']?>&action=delete" class="btn btn-danger">Delete</a>
+                                                <a class="btn btn-info" href="?action=view&product_id=<?php echo $row["product_id"];?>"><i class="fa fa-eye"></i> View</a>
+                                                <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&product_id=".$row["product_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
+                                                <a onClick="return confirmDelete();" href="Product_management.php?product_id=<?=$row['product_id']?>&action=delete" class="btn btn-danger">Delete</a>
                                              
                                             </td>
                                         </tr>
@@ -458,51 +464,6 @@ include("include/sidebar.php");
             </div>
         </section>
     </div> 
-    <script>
-$(document).ready(function() {
-    // Define custom method for phone number validation
-    $.validator.addMethod("validPhone", function(value, element) {
-        return this.optional(element) || /^\d{10}$/.test(value);  // Validates 10-digit numbers
-    }, "Please enter a valid 10-digit phone number.");
-
-    // Initialize form validation
-    $("#banner").validate({
-
-        rules: {
-                    customer_name:{
-                        required:true,
-                    },  
-
-                    phone_number: {
-                required: true,
-                validPhone: true // Apply the custom validation rule
-            },
-
-                    email:{
-                        required:true,
-				
-						
-                     },
-                     address:{
-                        required:true,
-                        
-                    },
-                },        
-            messages:{
-                customer_name:{required:"Please Enter Customer Name"}, 
-				phone_number:{required:"Please Enter Phone Number" }, 
-                email:{required:"Please Enter Email"},         
-               address:{required:"Please Enter Address"},         
-                     
-                     
-            },
-
-        submitHandler: function(form) {
-            form.submit(); // You can replace this with AJAX submission if needed
-        }
-    });
-});
-</script>
 
 
     <script>
@@ -532,29 +493,29 @@ $(document).ready(function() {
 			    ignore: [],
        
               rules: {
-                    customer_name:{
+                product_name:{
                         required:true,
                     },   
-                    phone_number:{
+                    Stock_keeping_unit:{
                     
                         required:true,
                     },	
 
-                    email:{
+                    Product_price:{
                         required:true,
 				
 						
                      },
-                     address:{
+                     product_description:{
                         required:true,
                         
                     },
                 },        
             messages:{
-                customer_name:{required:"Please enter Customer name"}, 
-				phone_number:{required:"Please enter phone number"}, 
-                email:{required:"Please enter Email"},         
-               address:{required:"Please enter address"},         
+                product_name:{required:"Please Enter Product Name"}, 
+				Stock_keeping_unit:{required:"Please Enter Stock Keeping Unit"}, 
+                Product_price:{required:"Please Enter Product Price"},         
+                product_description:{required:"Please Enter Product Description"},         
                      
                      
             },

@@ -1,6 +1,6 @@
 
 <footer class="main-footer text-center">
-    <strong>Copyright © Custom_portal INC. All Rights Reserved.</strong>
+    <strong>Copyright © Custom Portal INC. All Rights Reserved.</strong>
 </footer>
 </div>
 <script src="js/jquery-ui.min.js"></script>
