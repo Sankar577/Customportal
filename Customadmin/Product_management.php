@@ -130,18 +130,18 @@ if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($
     $sku = $db_cms->removeQuote($_POST["Stock_keeping_unit"]);
     $product_price =   $db_cms->removeQuote($_POST["Product_price"]);
     $prod_desc= $db_cms->removeQuote($_POST["product_description"]);
+    $category= $db_cms->removeQuote($_POST["Category"]);
     if(!empty($_POST["edit_action"])){
+
 		$sql_img="SELECT * FROM $table_name WHERE product_id='".$db_cms->removeQuote($_REQUEST["product_id"])."'"; 
 		$res_img=$db_cms->select_query_with_rows($sql_img);	
         // print_r($res_img);
         // exit();
-		$sql="UPDATE $table_name SET `product_name`='".$product_name."',`Stock_keeping_unit`='".$sku."',`Product_price`='".$product_price."', `product_description`='".$prod_desc."' WHERE `product_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
-
-       
+		$sql="UPDATE $table_name SET `product_name`='".$product_name."',`Stock_keeping_unit`='".$sku."',`Product_price`='".$product_price."', `product_description`='".$prod_desc."', `Category`='".$category."' WHERE `product_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
         
     }
     else{
-        $sql="INSERT INTO $table_name(`product_name`,`Stock_keeping_unit`,`Product_price`,`product_description`) VALUES ('".$product_name."','".$sku."','".$product_price."','".$prod_desc."')";
+        $sql="INSERT INTO $table_name(`product_name`,`Stock_keeping_unit`,`Product_price`,`product_description`,`Category`) VALUES ('".$product_name."','".$sku."','".$product_price."','".$prod_desc."', '".$category."')";
 	
     }
     $res = $db_cms->update_query($sql);   // <-  normal query function this
@@ -249,6 +249,7 @@ include("include/sidebar.php");
                             $sku="";
                             $product_price="";
                             $prod_desc="";
+                            $category="";
                            
                            
                             if(($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="view") && !empty($_REQUEST["product_id"])){
@@ -258,7 +259,8 @@ include("include/sidebar.php");
                                 $product_name=get_symbol($res["product_name"]);
                                 $sku=get_symbol($res["Stock_keeping_unit"]);
                                 $product_price=get_symbol($res["Product_price"]);   
-                                $prod_desc=get_symbol($res["product_description"]);                            
+                                $prod_desc=get_symbol($res["product_description"]);   
+                                $category=get_symbol($res["Category"]);                            
                             }
                             if($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="add"){
                                 ?>
@@ -294,6 +296,14 @@ include("include/sidebar.php");
                                         <div class="col-xs-6">
                                             <div class="form-group">
                                                 <input type="text" name="product_description" id="product_description" class="form-control"  value="<?php echo $prod_desc;?>">
+                                            </div>
+                                        </div>
+                                </div>  
+                                <div class="form-group">
+                                        <label class="control-label col-xs-2">Category<span class="star">*</span>:</label>
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" name="Category" id="Category" class="form-control"  value="<?php echo $category;?>">
                                             </div>
                                         </div>
                                 </div>  
@@ -386,6 +396,16 @@ include("include/sidebar.php");
                                             </div>
                                         </div>
                                 </div>
+                                <div class="form-group">
+                                        <label class="control-label col-xs-2">Category</label>
+                                        <div class="col-xs-6">
+                                            <div class="view_space">
+                                                <?php
+                                                echo $category;
+                                                ?>
+                                            </div>
+                                        </div>
+                                </div>
                               
                                  <div class="form-group">
                                     <div class="col-xs-2"></div>
@@ -418,6 +438,7 @@ include("include/sidebar.php");
                                     <th>Stock Keeping Unit</th>
                                     <th>Product Price</th>
                                     <th>Product Description</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -441,6 +462,8 @@ include("include/sidebar.php");
                                           <td><?php echo $row["Stock_keeping_unit"];?></td>
                                           <td><?php echo $row["Product_price"];?></td>
                                           <td><?php echo $row["product_description"];?></td>
+                                          <td><?php echo $row["Category"];?></td>
+
                                             <td>
                                                 <a class="btn btn-info" href="?action=view&product_id=<?php echo $row["product_id"];?>"><i class="fa fa-eye"></i> View</a>
                                                 <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&product_id=".$row["product_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
@@ -510,12 +533,16 @@ include("include/sidebar.php");
                         required:true,
                         
                     },
+                    Category:{
+                        required:true,
+                    }
                 },        
             messages:{
                 product_name:{required:"Please Enter Product Name"}, 
 				Stock_keeping_unit:{required:"Please Enter Stock Keeping Unit"}, 
                 Product_price:{required:"Please Enter Product Price"},         
-                product_description:{required:"Please Enter Product Description"},         
+                product_description:{required:"Please Enter Product Description"},    
+                Category:{required:"Please Enter Category"},        
                      
                      
             },

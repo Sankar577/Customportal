@@ -222,3 +222,10 @@ img{max-width:100%;}
 .html_small img{width:120px !important;height:60px !important;}
 .html_ban img{width:638px !important;height:71px !important;}
 .html_ads img{width:300px !important;height:250px !important;}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    margin-left:10px;
+}
