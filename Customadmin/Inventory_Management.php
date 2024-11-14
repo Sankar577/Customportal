@@ -127,35 +127,43 @@ $banner_image=$get_image;
 }
 
 if(!empty($_POST["submit_action"]) ){  
-   
+    $product_id = $db_cms->removeQuote($_POST["product_id"]); 
     $product_name = $db_cms->removeQuote($_POST["product_name"]); 
     $sku = $db_cms->removeQuote($_POST["Stock_keeping_unit"]);
     $product_price =   $db_cms->removeQuote($_POST["Product_price"]);
     $prod_desc= $db_cms->removeQuote($_POST["product_description"]);
     $category= $db_cms->removeQuote($_POST["Category"]);
+    $Total_stack=$db_cms->removeQuote($_POST["Total_Stock"]);
+    
+
+
     if(!empty($_POST["edit_action"])){
-        
 		$sql_img= " SELECT
     cim.InventoryID,
     cim.Total_Stock,
     cpm.product_id,
     cpm.product_name
 FROM
-    custom_Inventory_Management cim
+   customdb.custom_inventory_management cim
 INNER JOIN
-    custom_product_management cpm ON cim.product_id = cpm.product_id";
+   customdb.custom_product_management cpm ON cim.product_id = cpm.product_id";
    
 
 		$res_img=$db_cms->select_query($sql_img);	
-       
-		$sql="UPDATE $table_name SET `product_name`='".$product_name."',`Stock_keeping_unit`='".$sku."',`Product_price`='".$product_price."', `product_description`='".$prod_desc."', `Category`='".$category."' WHERE `product_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
+        
+		$sql="UPDATE $table_name SET `Total_Stock`='".$Total_stack."' WHERE `product_id`='".$db_cms->removeQuote($_POST["edit_action"])."'";
+      
         
     }
     else{
-        $sql="INSERT INTO $table_name(`product_name`,`Stock_keeping_unit`,`Product_price`,`product_description`,`Category`) VALUES ('".$product_name."','".$sku."','".$product_price."','".$prod_desc."', '".$category."')";
-	
+       
+        $sql="INSERT INTO $table_name(`Total_Stock`,`product_id`) VALUES ('".$Total_stack."','".$product_id."')";
+        // print_r($sql);
+        // exit;
+      
     }
     $res = $db_cms->update_query($sql);   // <-  normal query function this
+   
 
     if($res!=FALSE){
         $_SESSION["cms_status"]="success";
@@ -275,7 +283,7 @@ include("include/sidebar.php");
                                 $res=$db_cms->select_query($sql);
                           
                             
-                                $product_id=$res["product_id"];
+                                $product_id=get_symbol($res[0]["product_id"]);
                                 $product_name=get_symbol($res[0]["product_name"]);
                                 $sku=get_symbol($res[0]["Stock_keeping_unit"]);
                                 $product_price=get_symbol($res [0]["Product_price"]);   
@@ -285,25 +293,37 @@ include("include/sidebar.php");
                                   
                             }
                             if($_REQUEST["action"]=="edit" || $_REQUEST["action"]=="add"){
-                        
+                              
                                 ?>
-                        <form role="form" class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="banner">
+                        <form role="form" class="form-horizontal" action=""  method="post" enctype="multipart/form-data" id="banner">
                             <div class="box-body">
+
+
+                            <div class="form-group">
+                                        <label class="control-label col-xs-2">product_id<span class="star">*</span>:</label>
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" name="product_id" id="product_name" class="form-control"  value="<?php echo $product_id;?>" >
+                                            </div>
+                                        </div>
+                                        <button id="product_id1">Product 1</button>
+                                </div>    
 
                                  <div class="form-group">
                                         <label class="control-label col-xs-2">Product Name<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="text" name="product_name" id="product_name" class="form-control"  value="<?php echo $product_name;?>"readonly >
+                                                <input type="text" name="product_name" id="product_name" class="form-control"  value="<?php echo $product_name;?>" readonly>
                                             </div>
                                         </div>
+                                        
                                 </div>    
                                
                                 <div class="form-group">
                                         <label class="control-label col-xs-2">Product Price<span class="star">*</span>:</label>
                                         <div class="col-xs-6">
                                             <div class="form-group">
-                                                <input type="number" min="0" name="Product_price" id="Product_price" class="form-control"  value="<?php echo $product_price;?>"readonly >
+                                                <input type="number" min="0" name="Product_price" id="Product_price" class="form-control"  value="<?php echo $product_price;?>" readonly>
                                             </div>
                                         </div>
                                 </div> 
@@ -352,7 +372,8 @@ include("include/sidebar.php");
                                         <?php
                                             $action=($_REQUEST["action"]=="edit")?"edit_action":(($_REQUEST["action"]=="add")?"add_action":"none_action");
                 
-                                            $val=(!empty($res))?$res["product_id"]:"1";
+                                            $val=(!empty($res))?$res[0]["product_id"]:"1";
+                                           
                                             
                                             ?>
                                             <div class="form-group">
@@ -365,8 +386,11 @@ include("include/sidebar.php");
                                 </div>
                             </div>
                         </form>
+                        
+                        
                                 <?php
                             }
+                            
                             elseif($_REQUEST["action"]=="view"){
                                
                                 ?>
@@ -382,7 +406,9 @@ include("include/sidebar.php");
                                                 echo $product_name;
                                                 ?>
                                             </div>
+                                            
                                         </div>
+                                       
                                 </div>
 									<?php if($product_price!=''){?>		
 									<div class="form-group">
@@ -481,7 +507,7 @@ include("include/sidebar.php");
                                             <td>
                                                 <a class="btn btn-info" href="?action=view&product_id=<?php echo $row["product_id"];?>"><i class="fa fa-eye"></i> View</a>
                                                 <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&product_id=".$row["product_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
-                                                <a onClick="return confirmDelete();" href="Product_management.php?product_id=<?=$row['product_id']?>&action=delete" class="btn btn-danger">Delete</a>
+                                                <a onClick="return confirmDelete();" href="Inventory_Management.php?product_id=<?=$row['product_id']?>&action=delete" class="btn btn-danger">Delete</a>
                                              
                                             </td>
                                         </tr>
@@ -504,6 +530,64 @@ include("include/sidebar.php");
 
 
     <script>
+
+// Event listener for the button click
+document.getElementById('product_id1').addEventListener('click', function() {
+    fetchProductDetails('product_id1');
+});
+
+// Function to fetch product details using AJAX
+function fetchProductDetails(productId) {
+    var xhr = new XMLHttpRequest();  // Create new XMLHttpRequest object
+
+    // Open a GET request to fetch product data
+    xhr.open('GET', '/api/product/' + productId, true);
+
+    // Set the response type to JSON
+    xhr.responseType = 'json';
+
+    // When the request is completed (successful or not)
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {  // If the response is successful
+            var data = xhr.response;  // Parse the JSON response
+            displayProductDetails(data);  // Call the function to display the data
+        } else {
+            console.error('Error fetching product data:', xhr.status, xhr.statusText);
+            alert('There was an error fetching the product details.');
+        }
+    };
+
+    // In case of error in the request (e.g., network issues)
+    xhr.onerror = function() {
+        console.error('Network error or server unavailable.');
+        alert('Network error, please try again later.');
+    };
+
+    // Send the request
+    xhr.send();
+}
+
+// Function to display the product details
+function displayProductDetails(data) {
+    var productDetailsDiv = document.getElementById('product-details');
+    
+    if (data) {
+        // Display the product information
+        productDetailsDiv.innerHTML = `
+            <h2>${data.name}</h2>
+            <p>Price: $${data.price}</p>
+            <p>Description: ${data.description}</p>
+            <p>Stock: ${data.stock}</p>
+            <!-- You can add other product details here -->
+        `;
+    } else {
+        productDetailsDiv.innerHTML = '<p>Product details not found.</p>';
+    }
+}
+
+
+
+
         $(function () {             
             $(".delete_process").click(function(){
                 $(".delete_modal_box").find("#del_proceed").attr("href","?action=delete&id="+$(this).data("delete-id"));

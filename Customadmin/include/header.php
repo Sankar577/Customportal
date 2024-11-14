@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
   
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  
 </head>
 <body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">

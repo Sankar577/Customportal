@@ -145,7 +145,6 @@ if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($
 	
     }
     $res = $db_cms->update_query($sql);   // <-  normal query function this
-
     if($res!=FALSE){
         $_SESSION["cms_status"]="success";
         if(!empty($_POST["edit_action"])){
