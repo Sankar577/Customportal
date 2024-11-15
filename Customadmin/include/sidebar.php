@@ -13,6 +13,7 @@ if($currentFile=="OurTeam.php"){ $team_us="class='active'"; } else {$team_us="";
 if($currentFile=="client.php"){ $client="class='active'"; } else {$client=""; }
 if($currentFile=="Customer_management.php"){ $Customer_management="class='active'"; } else {$Customer_management=""; }
 if($currentFile=="Inventory_Management.php"){ $inventery_manage="class='active'"; } else {$inventery_manage=""; }
+if($currentFile=="Order_Management.php"){ $order_management="class='active'"; } else {$order_management=""; }
 // if(($currentFile== "banner.php")|| ($currentFile== "home_con.php") || ($currentFile== "home_ads.php")||($currentFile== "home_sideads.php")){$home="active";} else { $home="";}
 // if($currentFile== "home_sideads.php"){$home_sideads="class='active'";} else { $home_sideads="";}
 // if($currentFile=="banner.php"){ $home_banner="class='active'"; } else {$home_banner=""; } 
@@ -45,7 +46,7 @@ if($currentFile=="Inventory_Management.php"){ $inventery_manage="class='active'"
       <li <?php echo $about_us;?>><a href="Product_management.php"><i class="fa fas fa-cube  pictofixedwidth" aria-hidden="true"></i>Product Management</a></li>
             <!-- <li <?php echo $setting;?>><a href="setting.php"><i class="fa fa-gears" aria-hidden="true"></i>Site Settings</a></li> -->
             <li <?php echo $inventery_manage;?>><a href="Inventory_Management.php"><i class="fa fa-id-card" aria-hidden="true"></i>Inventory Management</a></li>
-			 
+            <li <?php echo $order_management;?>><a href="Order_Management.php"><i class="fa fa-suitcase" aria-hidden="true"></i>Order Management</a></li>
            
           
                 

@@ -9,7 +9,7 @@ if(empty($_SESSION['user_id']) && empty($_SESSION['user_name'])){
     header('Location:login.php');
     exit();
 } 
-$sitetitle="Inventory_Management- ".$site_title;
+$sitetitle="Order_Management- ".$site_title;
 
 //  manage settings + action---#
 $is_add_enabled=true;
@@ -17,7 +17,7 @@ $is_edit_enabled=true;
 $is_delete_enabled=true;
 
 $table_name="".DB_PREFIX."_inventory_management";
-$current_page="Inventory_Management.php";
+$current_page="Order_Management.php";
 $product_id=trim($_REQUEST['product_id']);
 $width_w="1500";
 $height_w="300";
@@ -197,12 +197,12 @@ include("include/sidebar.php");
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-            Inventory Management
+            Order Management
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>Inventory Management</a></li>
-                <li class="active">Inventory Management</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Order Management</a></li>
+                <li class="active">Order Management</li>
             </ol>
         </section>
 
@@ -214,7 +214,7 @@ include("include/sidebar.php");
                             <?php
                             if(!empty($_REQUEST["action"])){
                                 ?>
-                                <h3 class="box-title">Inventory Management - <?php echo ucfirst($_REQUEST["action"]);?> </h3>
+                                <h3 class="box-title">Order Management - <?php echo ucfirst($_REQUEST["action"]);?> </h3>
                                 <div class="pull-right">
                                     <a class="btn bg-purple" href="<?php echo $current_page;?>"><i class="fa  fa-chevron-left"></i> &nbsp;Back</a>
                                 </div>
@@ -222,7 +222,7 @@ include("include/sidebar.php");
                             }
                             else{
                                 ?>
-                                <h3 class="box-title">Inventory Management</h3>
+                                <h3 class="box-title">Order Management</h3>
                                 <div class="pull-right">
                                   <!-- <a class="btn bg-maroon <?php echo ($is_add_enabled)?"":"disabled";?>" href="<?php echo ($is_add_enabled)?"?action=add":"javascript:void(0);";?>"><i class="fa  fa-plus"></i> &nbsp;Add</a> -->
                                 </div>  
@@ -526,7 +526,7 @@ include("include/sidebar.php");
             </div>
         </section>
     </div> 
-    
+
 
     <script>
 
@@ -650,7 +650,7 @@ function fetchProductData() {
 				
 						
                      },
-                     Total_Stock:{
+                     product_description:{
                         required:true,
                         
                     },
@@ -662,7 +662,7 @@ function fetchProductData() {
                 product_name:{required:"Please Enter Product Name"}, 
 				Stock_keeping_unit:{required:"Please Enter Stock Keeping Unit"}, 
                 Product_price:{required:"Please Enter Product Price"},         
-                Total_Stock:{required:"Please Enter Total Stock"},    
+                product_description:{required:"Please Enter Product Description"},    
                 Category:{required:"Please Enter Category"},        
                      
                      
