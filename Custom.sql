@@ -54,21 +54,11 @@ CREATE TABLE `custom_customer` (
   `address` BLOB NOT NULL
 ); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-CREATE TABLE custom_Inventory_Management (
-    InventoryID INT NOT NULL AUTO_INCREMENT,
-    Total_Stock INT NOT NULL,
-    product_id INT,
-    PRIMARY KEY (InventoryID),
-    FOREIGN KEY (product_id) REFERENCES custom_product_management(product_id)
-);
-
-
 --
 -- Dumping data for table `elite_banner`
 --
 
-INSERT INTO `custom_customer`(`custom_id`, `customer_name`, `phone_number`, `email`, `address`) VALUES ('1','Sankar','9626585077','uthra.math@example.com','[value-5]')
+INSERT INTO `custom_customer`(`custom_id`, `customer_name`, `phone_number`, `email`, `address`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
 
 -- --------------------------------------------------------
 

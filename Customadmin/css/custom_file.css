@@ -1,0 +1,134 @@
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+select, input {
+    padding: 5px;
+    font-size: 14px;
+}
+.add-button {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.add-button:hover {
+    background-color: #218838;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+.save-button {
+    background-color: brown; 
+    color: #fff;
+    border: none; 
+    cursor: pointer;
+    height:31px;
+    border-radius: 3px;;
+}
+
+.save-button:hover {
+    background-color: #0056b3; 
+}
+
+.bg-purple {
+    background-color: #6f42c1; 
+    color: #fff;
+    text-decoration: none; 
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-purple:hover {
+    background-color: #5a3791; 
+}
+.pull-right{margin-bottom:20px;}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+    border: 1px solid #ddd;
+}
+
+.paymentForm {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+table#productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table#productsTable th,
+table#productsTable td {
+    padding: 10px;
+    text-align: center;
+}
+
+table#productsTable thead {
+    background-color: #f8f9fa;
+}
+
+table#productsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table#productsTable tr:hover {
+    background-color: #e9ecef;
+}
+
+.form-control.text-right {
+    text-align: right;
+}
+
+
+
+.amount-section {
+
+    border-radius: 8px;
+    width: 40%;
+    margin-right: 10%;
+    float: inline-end;
+}
+.amount-section .form-group {
+margin-bottom: 15px;
+}
+
+.amount-section .form-group.d-flex {
+display: flex;
+justify-content: space-between;
+gap: 15px; /* Adds spacing between elements */
+}
+
+.amount-section .col {
+flex: 1; /* Each input will take equal space */
+}
+
+.amount-section input[type="text"] {
+width: 100%; /* Make sure inputs take up full width of their container */
+}
+
+.thead-dark th {
+    background-color: #343a40;
+    color: #fff;
+}

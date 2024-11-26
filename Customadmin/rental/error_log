@@ -1,0 +1,169 @@
+[22-Nov-2024 04:31:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:8
+Stack trace:
+#0 /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php(8): mysqli->__construct('localhost', 'root', '', 'customdb')
+#1 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 04:32:33 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:8
+Stack trace:
+#0 /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php(8): mysqli->__construct('localhost', 'root', '', 'customdb')
+#1 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 04:35:43 UTC] PHP Warning:  include(../lib/config.php): Failed to open stream: No such file or directory in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 4
+[22-Nov-2024 04:35:43 UTC] PHP Warning:  include(): Failed opening '../lib/config.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 4
+[22-Nov-2024 04:35:43 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 04:35:43 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 04:35:43 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:35:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:37:54 UTC] PHP Warning:  include(../lib/config.php): Failed to open stream: No such file or directory in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 04:37:54 UTC] PHP Warning:  include(): Failed opening '../lib/config.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 04:37:54 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 7
+[22-Nov-2024 04:37:54 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 7
+[22-Nov-2024 04:37:54 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 14
+[22-Nov-2024 04:37:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 14
+[22-Nov-2024 04:38:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 14
+[22-Nov-2024 04:40:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 14
+[22-Nov-2024 04:51:08 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 04:51:08 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 04:51:08 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 04:51:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 04:55:15 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:55:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:56:43 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:56:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:57:06 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 04:57:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:12:24 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:12:24 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:12:24 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:12:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:15:53 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:15:53 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:15:53 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:15:53 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:15:59 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:15:59 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:15:59 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:15:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:21:44 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:21:44 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 8
+[22-Nov-2024 05:21:44 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:21:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 15
+[22-Nov-2024 05:24:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:41 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:42 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:42 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:25:42 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:25:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:26:00 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:26:00 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:26:00 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:26:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:30:23 UTC] PHP Fatal error:  Uncaught Error: Class "DBManager" not found in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/config.php:29
+Stack trace:
+#0 /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php(3): include()
+#1 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/config.php on line 29
+[22-Nov-2024 05:31:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:31:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:31:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:31:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:31:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:32:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:32:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:37:26 UTC] PHP Warning:  include(config.php): Failed to open stream: No such file or directory in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 3
+[22-Nov-2024 05:37:26 UTC] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 3
+[22-Nov-2024 05:37:26 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:37:26 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:37:26 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:37:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:38:02 UTC] PHP Warning:  include(config.php): Failed to open stream: No such file or directory in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 3
+[22-Nov-2024 05:38:02 UTC] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 3
+[22-Nov-2024 05:38:02 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:38:02 UTC] PHP Warning:  Attempt to read property "connect_error" on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 5
+[22-Nov-2024 05:38:02 UTC] PHP Warning:  Undefined variable $conn in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12
+[22-Nov-2024 05:38:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/uqdggrqf/public_html/development/Customportal/Customadmin/Rental/fetch_id.php on line 12

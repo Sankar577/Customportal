@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/select2.min.css">
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/skins/skin-custom-blue.css">
+
+	
 	
 	<script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
@@ -29,7 +31,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
   
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-  
+
+
+ 
 </head>
 <body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">

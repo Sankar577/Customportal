@@ -17,7 +17,7 @@ $is_edit_enabled=true;
 $is_delete_enabled=true;
 
 $table_name="".DB_PREFIX."_product_management";
-$current_page="Product_management.php";
+$current_page="product_management.php";
 $product_id=trim($_REQUEST['product_id']);
 $width_w="1500";
 $height_w="300";
@@ -47,6 +47,7 @@ if(!empty($_REQUEST["action"])) {
         if($_REQUEST["action"] == "delete" && $is_delete_enabled && !empty($_REQUEST["product_id"])){
             $sql="DELETE FROM $table_name WHERE `product_id`='".$db_cms->removeQuote($_REQUEST["product_id"])."'";
             $res=$db_cms->delete_query($sql);
+          
             if($res!=FALSE){
                 $_SESSION["cms_status"]="success";
                 $_SESSION["cms_msg"]="Deleted successfully!";
@@ -65,65 +66,6 @@ if(!empty($_REQUEST["action"])) {
         header('Location:'.$current_page.'');
         exit();
     }
-}
-// banner images
- if(!empty($_FILES["upload_file"]) && $_FILES["upload_file"]["error"]!=4) {
-        if (validate_image($_FILES["upload_file"])) {
-    if ($_FILES['upload_file']['name'] != "") {
-        list($width,$height) = getimagesize($_FILES['upload_file']['tmp_name']);
-        if($width<1500||$height<300)
-        { 
-            include('../includes/resize.php');
-            $get_image = $_FILES['upload_file']['name'];
-            $source = $_FILES['upload_file']['tmp_name'];
-            $get_image = time().$get_image;
-            $originalpath = "../webupload/original/client/".$get_image;
-            $thumbnailpath = "../webupload/thumb/client/".$get_image;
-            move_uploaded_file($source,$originalpath);
-			 $objimg = new SimpleImage();
-           $objimg -> load($originalpath);
-            $objimg -> resize(1500,300);
-            $objimg -> save($thumbnailpath);
-			$objimg -> resize(197,97);
-            $objimg -> save($smallpath);
-		
-			
-        }
-        else
-        { 
-            include('../includes/resize.php');
-            $get_image = $_FILES['upload_file']['name'];
-            $source = $_FILES['upload_file']['tmp_name'];
-            $get_image = time().$get_image;
-            $originalpath = "../webupload/original/client/".$get_image;
-            $thumbnailpath = "../webupload/thumb/client/".$get_image;
-            move_uploaded_file($source,$originalpath);
-           $objimg = new SimpleImage();
-            $objimg -> load($originalpath);
-            $objimg -> resize(1500,300);
-            $objimg -> save($thumbnailpath);
-			$objimg -> resize(197,97);
-            $objimg -> save($smallpath);
-			
-			
-
-        }
-    }
-        }
-}
-else { 
-    $get_image = get_entity($_REQUEST['theValue']); 
-	
-} 
-
-$upload_option=$_POST["upload_option"];
-if($upload_option=='html'){
-$banner_image1=$_POST["banner_image1"];
-$banner_image="";
-}
-else{
-$banner_image1="";
-$banner_image=$get_image;
 }
 if(!empty($_POST["submit_action"]) && (!empty($_POST["edit_action"]) || !empty($_POST["add_action"]))){   
     $product_name = $db_cms->removeQuote($_POST["product_name"]); 
@@ -204,7 +146,7 @@ include("include/sidebar.php");
                                 ?>
                                 <h3 class="box-title">Product Management</h3>
                                 <div class="pull-right">
-                                  <!-- <a class="btn bg-maroon <?php echo ($is_add_enabled)?"":"disabled";?>" href="<?php echo ($is_add_enabled)?"?action=add":"javascript:void(0);";?>"><i class="fa  fa-plus"></i> &nbsp;Add</a> -->
+
                                 </div>  
                                 <?php
                             }
@@ -243,7 +185,6 @@ include("include/sidebar.php");
                         $no_action=false;
                         if(!empty($_REQUEST["action"])){
                             $product_id=""; 
-                          
                             $product_name="";
                             $sku="";
                             $product_price="";
@@ -265,6 +206,14 @@ include("include/sidebar.php");
                                 ?>
                         <form role="form" class="form-horizontal" action="" method="post" enctype="multipart/form-data" id="banner">
                             <div class="box-body">
+                            <div class="form-group">
+                                        <label class="control-label col-xs-2">Product ID<span class="star">*</span>:</label>
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <input type="text" name="product_id" id="product_id" class="form-control"  value="<?php echo $product_id;?>" >
+                                            </div>
+                                        </div>
+                                </div>   
 
                                  <div class="form-group">
                                         <label class="control-label col-xs-2">Product Name<span class="star">*</span>:</label>
@@ -308,27 +257,7 @@ include("include/sidebar.php");
                                 </div>  
                                 
 
-					
-								<!-- <div class="form-group">
-                                    <label class="col-sm-2 control-label">Image<span class="star">*</span>:</label>
-                                    <div class="col-sm-6">
-                                        <?php if($_REQUEST["action"]!="add"){  ?>
-                                            <div>
-                                                <img src="<?php echo $sitepath;?>webupload/thumb/client/<?php echo $banner_path;?>" alt="Image" style="width:500px;"/>
-                                            </div>
-                                            <br/>
-                                        <?php  }  ?>
-                                        <div class="form-group">
-                                            <input type="file" id="upload_file" name="upload_file" accept=".jpeg, .jpg, .png, .gif"   onchange="return bannerimagecheck();"/>
-                                            <p class="help-block">(Required Image Size (Width*Height):<?=$width_w?>*<?=$height_w?>. Upload .jpg, .jpeg, .gif, .png)</p>
-                                            <input type="hidden" value="<?=$banner_path?>" id="theValue" name="theValue" />
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                               
-                                 
-
+	
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">&nbsp;</label>
                                     <div class="col-sm-6">
@@ -466,7 +395,7 @@ include("include/sidebar.php");
                                             <td>
                                                 <a class="btn btn-info" href="?action=view&product_id=<?php echo $row["product_id"];?>"><i class="fa fa-eye"></i> View</a>
                                                 <a class="btn btn-success <?php echo ($is_edit_enabled)?"":"disabled";?>" href="<?php echo ($is_edit_enabled)?"?action=edit&product_id=".$row["product_id"]:"javascript:void(0);";?>"><i class="fa fa-edit"></i> Edit</a>
-                                                <a onClick="return confirmDelete();" href="Product_management.php?product_id=<?=$row['product_id']?>&action=delete" class="btn btn-danger">Delete</a>
+                                                <a onClick="return confirmDelete();" href="product_management.php?product_id=<?=$row['product_id']?>&action=delete" class="btn btn-danger">Delete</a>
                                              
                                             </td>
                                         </tr>
